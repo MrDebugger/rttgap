@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="rttgap logo: the TCP round trip stops at the proxy, the echo goes on to the browser">
+  <rect width="256" height="256" rx="58" fill="#0D0D0E"/>
+  <rect x="3" y="3" width="250" height="250" rx="55" fill="none" stroke="#00FFA3" stroke-opacity=".22" stroke-width="3"/>
+  <!-- short TCP round trip: server to proxy -->
+  <path d="M190 116 Q159 62 128 112" stroke="#00FFA3" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <!-- long echo: server to the real browser -->
+  <path d="M192 152 Q126 228 60 152" stroke="#FFB800" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <!-- browser, proxy, server -->
+  <circle cx="56" cy="134" r="15" fill="#E8E8E8"/>
+  <rect x="113" y="119" width="30" height="30" rx="8" fill="#FFB800"/>
+  <circle cx="200" cy="134" r="15" fill="#00FFA3"/>
+</svg>
