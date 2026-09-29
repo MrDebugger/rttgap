@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rttgap"
+version = "0.1.0"
+description = "Spot proxied visitors by comparing the TCP round trip with a WebSocket echo."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ijaz Ur Rahim" }]
+keywords = ["proxy detection", "residential proxy", "bot detection", "anti-bot", "tcp_info", "rtt", "websocket"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Framework :: AsyncIO",
+    "Framework :: aiohttp",
+    "Framework :: FastAPI",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+aiohttp = ["aiohttp>=3.8"]
+starlette = ["starlette>=0.27"]
+test = ["pytest>=7", "aiohttp>=3.8", "starlette>=0.27", "httpx>=0.24"]
+
+[project.urls]
+Homepage = "https://github.com/MrDebugger/rttgap"
+Issues = "https://github.com/MrDebugger/rttgap/issues"
+"Live check" = "https://tools.ijazurrahim.com/proxy-check"
+Research = "https://ijazurrahim.com/blog/residential-proxies-are-detectable.html"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rttgap"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/rttgap", "tests", "README.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# starlette 1.x deprecates its httpx-based TestClient; the tests still use it
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
