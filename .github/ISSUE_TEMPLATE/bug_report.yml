@@ -1,0 +1,45 @@
+name: Bug report
+description: Something doesn't work, or a verdict is wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. For a wrong verdict, the numbers matter most: please include `result.as_dict()`.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: Output of `result.as_dict()`, if you have one.
+      render: json
+  - type: dropdown
+    id: setup
+    attributes:
+      label: Setup
+      options:
+        - aiohttp, visitors connect directly
+        - FastAPI / Starlette behind nginx
+        - rttgap.evaluate() with my own numbers
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: network
+    attributes:
+      label: Visitor's network
+      description: e.g. home fibre, mobile data, corporate proxy, residential proxy
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: rttgap, Python, framework, OS / kernel
+      placeholder: rttgap 0.1.0, Python 3.12, aiohttp 3.11, Linux 6.8
+    validations:
+      required: true

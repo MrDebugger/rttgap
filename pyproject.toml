@@ -17,11 +17,21 @@ classifiers = [
     "Intended Audience :: Developers",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: JavaScript",
     "Framework :: AsyncIO",
     "Framework :: aiohttp",
     "Framework :: FastAPI",
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Security",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: System :: Networking :: Monitoring",
+    "Typing :: Typed",
 ]
 dependencies = []
 
@@ -32,6 +42,8 @@ test = ["pytest>=7", "aiohttp>=3.8", "starlette>=0.27", "httpx>=0.24"]
 
 [project.urls]
 Homepage = "https://github.com/MrDebugger/rttgap"
+Documentation = "https://github.com/MrDebugger/rttgap#readme"
+Changelog = "https://github.com/MrDebugger/rttgap/blob/main/CHANGELOG.md"
 Issues = "https://github.com/MrDebugger/rttgap/issues"
 "Live check" = "https://tools.ijazurrahim.com/proxy-check"
 Research = "https://ijazurrahim.com/blog/residential-proxies-are-detectable.html"
@@ -40,7 +52,7 @@ Research = "https://ijazurrahim.com/blog/residential-proxies-are-detectable.html
 packages = ["src/rttgap"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/rttgap", "tests", "README.md", "LICENSE"]
+include = ["src/rttgap", "tests", "README.md", "LICENSE", "CHANGELOG.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

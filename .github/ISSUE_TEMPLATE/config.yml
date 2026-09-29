@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Try it on your own connection
+    url: https://tools.ijazurrahim.com/proxy-check
+    about: The live check, running at Cloudflare's edge.
+  - name: How it was measured
+    url: https://ijazurrahim.com/blog/residential-proxies-are-detectable.html
+    about: 798 residential proxy sessions, the method and the data.
+  - name: Report a security issue
+    url: https://github.com/MrDebugger/rttgap/blob/main/SECURITY.md
+    about: Please report vulnerabilities privately.
