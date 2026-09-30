@@ -1,0 +1,34 @@
+name: Question / usage
+description: How do I use rttgap for my setup?
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Happy to help. For a wrong or surprising verdict, use the **Wrong verdict (accuracy)**
+        template instead — it asks for the numbers that explain it.
+  - type: textarea
+    id: question
+    attributes:
+      label: What are you trying to work out?
+      description: What you want to happen, and where you're stuck.
+    validations:
+      required: true
+  - type: dropdown
+    id: setup
+    attributes:
+      label: Your setup
+      options:
+        - aiohttp, visitors connect directly
+        - FastAPI / Starlette behind nginx ($tcpinfo_rtt)
+        - rttgap.evaluate() with my own numbers
+        - Still deciding how to wire it up
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you've tried
+      description: Code, config or docs you've already looked at. A snippet helps.
+      render: python
