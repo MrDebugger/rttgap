@@ -1,0 +1,58 @@
+name: Wrong verdict (accuracy)
+description: A direct visitor was flagged, or a proxy slipped through
+labels: [accuracy]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the signal that improves the threshold. The numbers matter most:
+        please paste `result.as_dict()` so the gap and the RTTs are visible.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong
+      options:
+        - False positive — a direct visitor was flagged as proxied
+        - False negative — a proxy was not caught
+        - Verdict is "unsure" when it should be clear
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: Output of `result.as_dict()` for the session in question.
+      render: json
+    validations:
+      required: true
+  - type: input
+    id: connection
+    attributes:
+      label: The connection that was misjudged
+      description: e.g. home fibre, mobile data on a train, corporate proxy, residential proxy in DE
+    validations:
+      required: true
+  - type: input
+    id: threshold
+    attributes:
+      label: Threshold in use
+      description: The gap cutoff you compare against, and how you set it (default, or calibrated on your own traffic).
+      placeholder: default confirm limit
+  - type: dropdown
+    id: setup
+    attributes:
+      label: How the RTT was read
+      options:
+        - aiohttp, visitors connect directly
+        - FastAPI / Starlette behind nginx ($tcpinfo_rtt)
+        - rttgap.evaluate() with my own numbers
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: rttgap 0.1.0, Python 3.12, aiohttp 3.11, Linux 6.8
+    validations:
+      required: true
